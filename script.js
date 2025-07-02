@@ -78,10 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-<<<<<<< HEAD
     // タブ切り替え機能のイベントリスナー
-=======
->>>>>>> origin/main
     yearTabs.forEach(tab => {
         tab.addEventListener('click', function() {
             // 現在のタブとコンテンツのactiveクラスを削除
@@ -97,19 +94,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // スクロール位置を調整
-<<<<<<< HEAD
-            scrollToGallery();
-        });
-    });
-
-=======
             window.scrollTo({
                 top: document.querySelector('.gallery').offsetTop - document.querySelector('header').offsetHeight - 20,
                 behavior: 'smooth'
             });
         });
     });
->>>>>>> origin/main
+
     // セクションリンクのスクロール位置調整
     const sectionLinks = document.querySelectorAll('.section-link');
     sectionLinks.forEach(link => {
