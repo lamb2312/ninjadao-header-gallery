@@ -211,6 +211,7 @@ nav {
     object-fit: cover;
 }
 
+<<<<<<< HEAD
 /* モバイル表示時のタイルサイズ調整 */
 @media screen and (max-width: 768px) {
     .tiles-container {
@@ -229,6 +230,8 @@ nav {
     }
 }
 
+=======
+>>>>>>> origin/main
 /* タイルのオーバーレイスタイル */
 .tile-overlay {
     position: absolute;
