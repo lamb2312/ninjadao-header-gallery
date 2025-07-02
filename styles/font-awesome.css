@@ -1,0 +1,82 @@
+@font-face {
+    font-family: 'Font Awesome 6 Brands';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/fa-brands-400.woff2') format('woff2'),
+         url('../fonts/fa-brands-400.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-style: normal;
+    font-weight: 900;
+    src: url('../fonts/fa-solid-900.woff2') format('woff2'),
+         url('../fonts/fa-solid-900.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/fa-regular-400.woff2') format('woff2'),
+         url('../fonts/fa-regular-400.ttf') format('truetype');
+}
+
+:root {
+    --fa-font-brands: "Font Awesome 6 Brands";
+    --fa-font-solid: "Font Awesome 6 Free";
+    --fa-font-regular: "Font Awesome 6 Free";
+}
+
+[class^="fa-"] {
+    display: inline-block;
+    font: var(--fa-font-solid) 900 1em/1 "Font Awesome 6 Free";
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="fab-"] {
+    font-family: var(--fa-font-brands) !important;
+}
+
+[class^="far-"] {
+    font-family: var(--fa-font-regular) !important;
+}
+
+[class^="fas-"] {
+    font-family: var(--fa-font-solid) !important;
+}
+
+[class^="fa-"]:before {
+    display: inline-block;
+}
+
+[class^="fab-"]:before {
+    font-family: var(--fa-font-brands) !important;
+}
+
+[class^="far-"]:before {
+    font-family: var(--fa-font-regular) !important;
+}
+
+[class^="fas-"]:before {
+    font-family: var(--fa-font-solid) !important;
+}
+
+[class^="fa-"]:after {
+    display: inline-block;
+}
+
+[class^="fab-"]:after {
+    font-family: var(--fa-font-brands) !important;
+}
+
+[class^="far-"]:after {
+    font-family: var(--fa-font-regular) !important;
+}
+
+[class^="fas-"]:after {
+    font-family: var(--fa-font-solid) !important;
+}

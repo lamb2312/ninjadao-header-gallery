@@ -6,16 +6,16 @@
     
     <!-- Open Graph メタタグ -->
     <meta property="og:title" content="NinjaDAO Header Gallery">
-    <meta property="og:description" content="NinjaDAOのヘッダーイラストギャラリーです。">
+    <meta property="og:description" content="NinjaDAOのヘッダーイラストギャラリーです">
     <meta property="og:image" content="https://lamb2312.github.io/ninjadao-header-gallery/og-image.webp">
-    <meta property="og:url" content="https://lamb2312.github.io/ninjadao-header-gallery/">
+    <meta property="og:url" content="https://lamb2312.github.io/ninjadao-header-gallery">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="NinjaDAO Header Gallery">
     
     <!-- Twitter Card メタタグ -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="NinjaDAO Header Gallery">
-    <meta name="twitter:description" content="NinjaDAOのヘッダーイラストギャラリーです。">
+    <meta name="twitter:description" content="NinjaDAOのヘッダーイラストギャラリーです">
     <meta name="twitter:image" content="https://lamb2312.github.io/ninjadao-header-gallery/og-image.webp">
     <title>NinjaDAO Header Gallery</title>
     <link rel="icon" type="image/webp" href="favicon.webp">
@@ -24,12 +24,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/font-awesome.css">
     
     <!-- セキュリティヘッダー -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self';">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="X-Permitted-Cross-Domain-Policies" content="none">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     
 </head>
@@ -53,6 +54,13 @@
                     <p>クリエイターに毎月制作を依頼し、サーバーのヘッダーにすることで、クリエイターの作品や存在をより広く知ってもらいたいと考えています。</p>
                     <p>そんなNinjaDAOのヘッダーイラストを展示するギャラリーです。</p>
                 </div>
+            </div>
+        </section>
+
+        <!-- タイルセクション -->
+        <section class="tiles" id="tiles">
+            <div class="tiles-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; max-width: 1200px; margin: 0 auto; padding: 2rem;">
+                <!-- タイルはJavaScriptで動的に生成されます -->
             </div>
         </section>
 
