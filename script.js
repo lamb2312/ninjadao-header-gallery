@@ -3,6 +3,82 @@ document.addEventListener('DOMContentLoaded', function() {
     const yearTabs = document.querySelectorAll('.year-tab');
     const yearContents = document.querySelectorAll('.year-content');
 
+    // タイルの生成
+    const tilesContainer = document.querySelector('.tiles-container');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    if (tilesContainer && galleryItems.length > 0) {
+        galleryItems.forEach(galleryItem => {
+            const img = galleryItem.querySelector('img');
+            const title = galleryItem.querySelector('.gallery-item-info h3').textContent;
+
+            if (img && title) {
+                // タイルの作成
+                const tile = document.createElement('div');
+                tile.className = 'tile';
+                
+                // 画像の作成
+                const imgElement = document.createElement('img');
+                imgElement.src = img.src;
+                imgElement.alt = title;
+                
+                // オーバーレイの作成
+                const overlay = document.createElement('div');
+                overlay.className = 'tile-overlay';
+                
+                // タイトルの作成
+                const titleElement = document.createElement('div');
+                titleElement.className = 'tile-title';
+                titleElement.textContent = title;
+
+                // DOMツリーの構築
+                overlay.appendChild(titleElement);
+                tile.appendChild(imgElement);
+                tile.appendChild(overlay);
+                tilesContainer.appendChild(tile);
+
+                // クリックイベントの追加
+                tile.addEventListener('click', function() {
+                    // イメージのパスを取得
+                    const imagePath = img.src.split('/').pop();
+                    
+                    // クリックされたタイルに対応するイラストカードを取得
+                    const targetGalleryItem = Array.from(document.querySelectorAll('.gallery-item')).find(item => {
+                        const galleryImg = item.querySelector('img');
+                        return galleryImg && galleryImg.src.split('/').pop() === imagePath;
+                    });
+
+                    if (targetGalleryItem) {
+                        // イラストカードが属する年タブを取得
+                        const targetYearTab = targetGalleryItem.closest('.year-content').dataset.year;
+                        const yearTab = document.querySelector(`.year-tab[data-year="${targetYearTab}"]`);
+
+                        // タブをアクティブに
+                        document.querySelectorAll('.year-tab').forEach(tab => tab.classList.remove('active'));
+                        document.querySelectorAll('.year-content').forEach(content => content.classList.remove('active'));
+                        yearTab.classList.add('active');
+                        document.querySelector(`.year-content[data-year="${targetYearTab}"]`).classList.add('active');
+
+                        // ギャラリーセクションまでスクロール
+                        window.scrollTo({
+                            top: document.querySelector('.gallery').offsetTop - document.querySelector('header').offsetHeight - 20,
+                            behavior: 'smooth'
+                        });
+
+                        // イラストカードの位置までスクロール
+                        setTimeout(() => {
+                            targetGalleryItem.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'center'
+                            });
+                        }, 500);
+                    }
+                });
+            }
+        });
+    }
+
+    // タブ切り替え機能のイベントリスナー
     yearTabs.forEach(tab => {
         tab.addEventListener('click', function() {
             // 現在のタブとコンテンツのactiveクラスを削除
@@ -18,12 +94,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // スクロール位置を調整
-            window.scrollTo({
-                top: document.querySelector('.gallery').offsetTop - document.querySelector('header').offsetHeight - 20,
-                behavior: 'smooth'
-            });
+            scrollToGallery();
         });
     });
+
     // セクションリンクのスクロール位置調整
     const sectionLinks = document.querySelectorAll('.section-link');
     sectionLinks.forEach(link => {
@@ -65,7 +139,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // イラストカードのローディング効果
-    const galleryItems = document.querySelectorAll('.gallery-item');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
