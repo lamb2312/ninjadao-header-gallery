@@ -20,6 +20,10 @@ header {
     border-bottom: 1px solid #e0e0e0;
 }
 
+.logo {
+    cursor: pointer;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -97,7 +101,7 @@ nav {
 
 .gallery {
     padding: 4rem 5%;
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
     background-color: #ffffff;
 }

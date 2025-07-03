@@ -1,4 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // ロゴクリックイベント
+    const logo = document.querySelector('.logo');
+    if (logo) {
+        logo.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
     // タブ切り替え機能
     const yearTabs = document.querySelectorAll('.year-tab');
     const yearContents = document.querySelectorAll('.year-content');
