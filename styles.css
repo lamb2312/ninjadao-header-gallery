@@ -39,6 +39,16 @@ nav {
     color: #333333;
     font-family: 'Noto Serif JP', serif;
     letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    color: #666;
+    text-decoration: underline;
+    text-decoration-color: #666;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
 }
 
 .section-links {

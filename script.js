@@ -3,10 +3,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const logo = document.querySelector('.logo');
     if (logo) {
         logo.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            // アニメーション効果のあるスクロール
+            const duration = 500; // アニメーションの時間（ミリ秒）
+            const start = window.pageYOffset;
+            const end = 0;
+            const startTime = performance.now();
+
+            function animateScroll(currentTime) {
+                const elapsedTime = currentTime - startTime;
+                const progress = Math.min(elapsedTime / duration, 1);
+                
+                // イージング関数（クォード・アウト）
+                const ease = progress * progress;
+                
+                // スクロール位置を計算
+                const position = start + (end - start) * ease;
+                
+                // スクロールを実行
+                window.scrollTo(0, position);
+                
+                // アニメーションが完了するまで継続
+                if (progress < 1) {
+                    requestAnimationFrame(animateScroll);
+                }
+            }
+            
+            requestAnimationFrame(animateScroll);
         });
     }
 
@@ -123,11 +145,32 @@ document.addEventListener('DOMContentLoaded', function() {
             // ヘッダーの高さを取得
             const headerHeight = document.querySelector('header').offsetHeight;
             
-            // スクロール位置を調整
-            window.scrollTo({
-                top: targetSection.offsetTop - headerHeight - 20,
-                behavior: 'smooth'
-            });
+            // アニメーション効果のあるスクロール
+            const duration = 500; // アニメーションの時間（ミリ秒）
+            const start = window.pageYOffset;
+            const end = targetSection.offsetTop - headerHeight - 20;
+            const startTime = performance.now();
+
+            function animateScroll(currentTime) {
+                const elapsedTime = currentTime - startTime;
+                const progress = Math.min(elapsedTime / duration, 1);
+                
+                // イージング関数（クォード・アウト）
+                const ease = progress * progress;
+                
+                // スクロール位置を計算
+                const position = start + (end - start) * ease;
+                
+                // スクロールを実行
+                window.scrollTo(0, position);
+                
+                // アニメーションが完了するまで継続
+                if (progress < 1) {
+                    requestAnimationFrame(animateScroll);
+                }
+            }
+            
+            requestAnimationFrame(animateScroll);
 
             // 現在のセクションのリンクにactiveクラスを追加
             sectionLinks.forEach(l => l.classList.remove('active'));
